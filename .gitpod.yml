@@ -1,0 +1,22 @@
+tasks:
+- init: ./mvnw package -DskipTests
+  command: java -jar target/*.jar
+  name: Run PetClinic app
+
+# exposed ports
+ports:
+- port: 8080
+  onOpen: open-preview
+
+vscode:
+  extensions:
+    - vscjava.vscode-java-pack
+    - Pivotal.vscode-boot-dev-pack
+    - redhat.vscode-xml
+
+jetbrains:
+  intellij:  
+    plugins:
+      - com.haulmont.jpab
+    prebuilds:
+      version: both
